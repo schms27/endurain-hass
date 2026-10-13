@@ -91,7 +91,11 @@ class EndurainConfigFlow(ConfigFlow, domain=DOMAIN):
             self._verify_ssl = user_input[CONF_VERIFY_SSL]
             return await self.async_step_auth_method()
 
-        return self.async_show_form(step_id="user", data_schema=STEP_USER_SCHEMA)
+        return self.async_show_form(
+            step_id="user",
+            data_schema=STEP_USER_SCHEMA,
+            description_placeholders={"example_url": "https://endurain.example.com"},
+        )
 
     async def async_step_auth_method(self, user_input: dict[str, Any] | None = None) -> ConfigFlowResult:
         """Let the user choose between API key and username/password."""
