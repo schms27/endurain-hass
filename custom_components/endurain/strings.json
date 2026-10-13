@@ -1,0 +1,219 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Endurain",
+        "description": "Enter the address of your self-hosted Endurain instance.",
+        "data": {
+          "url": "URL",
+          "verify_ssl": "Verify SSL certificate"
+        },
+        "data_description": {
+          "url": "For example https://endurain.example.com"
+        }
+      },
+      "auth_method": {
+        "title": "Authentication",
+        "description": "Choose how Home Assistant authenticates with Endurain.",
+        "menu_options": {
+          "api_key": "API key (recommended, needs an Endurain version with read scopes for API keys)",
+          "credentials": "Username and password (works with every Endurain version)"
+        }
+      },
+      "api_key": {
+        "title": "API key",
+        "description": "Your Endurain instance: {url}\n\nCreate a key in Endurain under Settings → Security → API keys and grant it the scopes `profile`, `activities:read` and `health:read`.",
+        "data": {
+          "api_key": "API key"
+        }
+      },
+      "credentials": {
+        "title": "Username and password",
+        "description": "Your Endurain instance: {url}\n\nYour password is only used to log in once and is not stored. Home Assistant keeps a session token that it renews automatically.",
+        "data": {
+          "username": "Username",
+          "password": "Password"
+        }
+      },
+      "mfa": {
+        "title": "Two-factor authentication",
+        "description": "Enter the code from your authenticator app or one of your backup codes.",
+        "data": {
+          "mfa_code": "Code"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate with Endurain",
+        "description": "The credentials for {url} are no longer valid. Continue to sign in again."
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to Endurain.",
+      "invalid_auth": "Invalid username or password.",
+      "invalid_api_key": "The API key is invalid, revoked or expired.",
+      "api_key_unsupported": "This Endurain server does not accept API keys for reading data. Use username and password instead.",
+      "api_key_missing_scope": "The API key is missing the `profile` scope.",
+      "invalid_mfa_code": "Invalid two-factor code.",
+      "rate_limited": "Too many attempts. Wait a moment and try again.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This Endurain account is already configured.",
+      "reauth_successful": "Re-authentication was successful.",
+      "wrong_account": "You signed in with a different account than the one configured."
+    }
+  },
+  "entity": {
+    "event": {
+      "activity": {
+        "name": "Activity",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "new_activity": "New activity"
+            }
+          }
+        }
+      }
+    },
+    "sensor": {
+      "week_distance": {
+        "name": "This week distance"
+      },
+      "week_duration": {
+        "name": "This week duration"
+      },
+      "week_activity_count": {
+        "name": "This week activities"
+      },
+      "week_elevation_gain": {
+        "name": "This week elevation gain"
+      },
+      "week_calories": {
+        "name": "This week calories"
+      },
+      "month_distance": {
+        "name": "This month distance"
+      },
+      "month_duration": {
+        "name": "This month duration"
+      },
+      "month_activity_count": {
+        "name": "This month activities"
+      },
+      "month_elevation_gain": {
+        "name": "This month elevation gain"
+      },
+      "month_calories": {
+        "name": "This month calories"
+      },
+      "year_distance": {
+        "name": "This year distance"
+      },
+      "year_duration": {
+        "name": "This year duration"
+      },
+      "year_activity_count": {
+        "name": "This year activities"
+      },
+      "year_elevation_gain": {
+        "name": "This year elevation gain"
+      },
+      "year_calories": {
+        "name": "This year calories"
+      },
+      "lifetime_distance": {
+        "name": "Lifetime distance"
+      },
+      "lifetime_duration": {
+        "name": "Lifetime duration"
+      },
+      "lifetime_activity_count": {
+        "name": "Lifetime activities"
+      },
+      "lifetime_elevation_gain": {
+        "name": "Lifetime elevation gain"
+      },
+      "lifetime_calories": {
+        "name": "Lifetime calories"
+      },
+      "latest_activity": {
+        "name": "Latest activity",
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activity ID"
+          },
+          "activity_type": {
+            "name": "Activity type"
+          },
+          "start_time": {
+            "name": "Start time"
+          },
+          "distance_m": {
+            "name": "Distance (m)"
+          },
+          "duration_s": {
+            "name": "Duration (s)"
+          },
+          "elevation_gain_m": {
+            "name": "Elevation gain (m)"
+          },
+          "calories": {
+            "name": "Calories"
+          },
+          "average_hr": {
+            "name": "Average heart rate"
+          },
+          "url": {
+            "name": "URL"
+          }
+        }
+      },
+      "latest_activity_start": {
+        "name": "Latest activity start"
+      },
+      "latest_activity_distance": {
+        "name": "Latest activity distance"
+      },
+      "latest_activity_duration": {
+        "name": "Latest activity duration"
+      },
+      "steps": {
+        "name": "Steps",
+        "state_attributes": {
+          "date": {
+            "name": "Date"
+          }
+        }
+      },
+      "weight": {
+        "name": "Weight",
+        "state_attributes": {
+          "date": {
+            "name": "Date"
+          }
+        }
+      },
+      "bmi": {
+        "name": "BMI"
+      },
+      "body_fat": {
+        "name": "Body fat"
+      },
+      "sleep_duration": {
+        "name": "Sleep duration",
+        "state_attributes": {
+          "date": {
+            "name": "Date"
+          }
+        }
+      },
+      "sleep_score": {
+        "name": "Sleep score"
+      },
+      "resting_heart_rate": {
+        "name": "Resting heart rate"
+      }
+    }
+  }
+}
